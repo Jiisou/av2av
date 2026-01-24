@@ -24,9 +24,13 @@ class UTUTModel(BARTModel):
             "decoder.embed_tokens.weight",
             "decoder.output_projection.weight",
         ]:
-            vocab_size = state_dict[w].shape[0] - 4 - 2 - 1
+            vocab_size = state_dict[w].shape[0] - 4 - 2 - 1 # =1000 units
             assert vocab_size == 1000
-            state_dict[w] = torch.cat([state_dict[w][:4+vocab_size+2], self_state_dict[w][4+vocab_size+2:-1], state_dict[w][-1:]])
+            state_dict[w] = torch.cat([
+                state_dict[w][:4+vocab_size+2],         # (special tokens) 4: [pad,unk,sos,eos] + vocab_size + (mask tokens from ckpt) 2: [pad,unk]
+                self_state_dict[w][4+vocab_size+2:-1],  # NEW language embeddings
+                state_dict[w][-1:]                      # Final token from ckpt
+                ]) # model merges old and new language embeddings
 
         self.load_state_dict(state_dict, strict=True)
 
