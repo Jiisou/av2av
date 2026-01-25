@@ -90,16 +90,32 @@ done > raw_data/train.ko
 ### Step 4. fairseq-preprocess
 
 ```bash
-fairseq-preprocess     --source-lang en     --target-lang ko     --trainpref raw_data/train     --validpref raw_data/valid     --testpref raw_data/test     --destdir ./data/dataset_mbart_ft_bin_data/en/ko     --srcdict unit2unit/utut_pretrain/dataset/dict.txt     --tgtdict unit2unit/utut_pretrain/dataset/dict.txt     --workers 4
+cd unit2unit
+
+fairseq-preprocess \
+    --source-lang en \
+    --target-lang ko \
+    --trainpref a2a/raw_data/train \
+    --validpref a2a/raw_data/valid \
+    --testpref a2a/raw_data/test \
+    --destdir utut_finetune/data/dataset_mbart_ft_bin_data/en/ko \
+    --srcdict a2a/utut_pretrain/dict.txt \
+    --tgtdict a2a/utut_pretrain/dict.txt \
+    --workers 4
 ```
 
 ---
 
 ## Run UTUT Fine-tuning
+> pretrained unit-mbart checkpoint : [Unit mBART](https://github.com/facebookresearch/fairseq/blob/main/examples/speech_to_speech/docs/enhanced_direct_s2st_discrete_units.md#unit-mbart) --> `/../utut_finetune/`
 
 ```bash
 cd unit2unit/utut_finetune
-PYTHONPATH=path/to/fairseq python finetune_en_ko.py
+
+PYTHONPATH=/path/to/fairseq OMP_NUM_THREADS=1 python finetune_en_ko.py data/dataset_mbart_ft_bin_data/en/ko --arch mbart_large \
+--task translation_from_pretrained_bart \
+--criterion label_smoothed_cross_entropy \
+--user-dir ./
 ```
 
 ---
