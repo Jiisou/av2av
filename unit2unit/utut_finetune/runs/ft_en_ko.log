@@ -1,0 +1,310 @@
+$ CUDA_VISIBLE_DEVICES=3 PYTHONPATH=/home/2022113135/jjs/av2av/fairseq OMP_NUM_THREADS=1 pytho
+n finetune_en_ko.py data/dataset_mbart_ft_bin_data/en/ko --arch mbart_large \                                                                                          
+--task translation_from_pretrained_bart \                                                                                                                              
+--criterion label_smoothed_cross_entropy \                                                                                                                             
+--user-dir ./                                                                                                                                                          
+/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/hydra/experimental/initialize.py:35: UserWarning: hydra.experimental.initialize() is no longer ex
+perimental. Use hydra.initialize()                                                                                                                                     
+  deprecation_warning(                                                                                                                                                 
+/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/hydra/experimental/compose.py:18: UserWarning: hydra.experimental.compose() is no longer experime
+ntal. Use hydra.compose()                                               
+  deprecation_warning(                                                                                                                                                 
+/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/hydra/core/default_element.py:122: UserWarning: In 'config': Usage of deprecated keyword in packa
+ge header '# @package _group_'.                                                                                                                                        
+See https://hydra.cc/docs/next/upgrades/1.0_to_1.1/changes_to_package_header for more information                                                                      
+  deprecation_warning(                                                                                                                                                 
+sys:1: UserWarning:                                                                                                                                                    
+'config' is validated against ConfigStore schema with the same name.                                                                                                   
+This behavior is deprecated in Hydra 1.1 and will be removed in Hydra 1.2.                                                                                             
+See https://hydra.cc/docs/next/upgrades/1.0_to_1.1/automatic_schema_matching for migration instructions.                                                               
+/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/hydra/compose.py:49: UserWarning:                                                                
+The strict flag in the compose API is deprecated and will be removed in the next version of Hydra.                                                                     
+See https://hydra.cc/docs/upgrades/0.11_to_1.0/strict_mode_flag_deprecated for more info.                                                                              
+                                                                                                                                                                       
+  deprecation_warning(                                                                                                                                                 
+2026-02-01 20:24:55 | INFO | fairseq_cli.train | {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 100, 'log_format': 'json', 'log_fi
+le': None, 'aim_repo': None, 'aim_run_hash': None, 'tensorboard_logdir': './utut_ckpt/unit_mbart_multilingual_ft/en_ko', 'wandb_project': None, 'azureml_logging': Fals
+e, 'seed': 2, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 
+'fp16_init_scale': 128, 'fp16_scale_window': None, 'fp16_scale_tolerance': 0.0, 'on_cpu_convert_precision': False, 'min_loss_scale': 0.0001, 'threshold_loss_scale': No
+ne, 'amp': False, 'amp_batch_retries': 2, 'amp_init_scale': 128, 'amp_scale_window': None, 'user_dir': './', 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'mod
+el_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': False, 'suppress_crashes': False, 'use_plasma_view': False, 'plasma_path': '
+/tmp/plasma'}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training
+': {'_name': None, 'distributed_world_size': 1, 'distributed_num_procs': 1, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': None, 'dis
+tributed_port': -1, 'device_id': 0, 'distributed_no_spawn': False, 'ddp_backend': 'pytorch_ddp', 'ddp_comm_hook': 'none', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': F
+alse, 'find_unused_parameters': False, 'gradient_as_bucket_view': False, 'fast_stat_sync': False, 'heartbeat_timeout': -1, 'broadcast_buffers': False, 'slowmo_momentum
+': None, 'slowmo_base_algorithm': 'localsgd', 'localsgd_frequency': 3, 'nprocs_per_node': 8, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devi
+ces': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': Non
+e, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'fp16': True, 'memory_efficient_fp16': False, 'tpu': False, 'no_reshard_after_forward': False, 'fp32_reduce
+_scatter': False, 'cpu_offload': False, 'use_sharded_state': False, 'not_fsdp_flatten_parameters': False}, 'dataset': {'_name': None, 'num_workers': 4, 'skip_invalid_s
+ize_inputs_valid_test': True, 'max_tokens': 1024, 'batch_size': 128, 'required_batch_size_multiple': 8, 'required_seq_len_multiple': 1, 'dataset_impl': 'mmap', 'data_b
+uffer_size': 10, 'train_subset': 'train', 'valid_subset': 'valid', 'combine_valid_subsets': None, 'ignore_unused_valid_subsets': False, 'validate_interval': 1, 'valida
+te_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': 1024, 'batch_size_valid': 128, 'm
+ax_valid_steps': None, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0, 'grouped_shuffling': False, 'update_epoch_batch_itr': False, 'update_orde
+red_indices_seed': False}, 'optimization': {'_name': None, 'max_epoch': 0, 'max_update': 100000, 'stop_time_hours': 0.0, 'clip_norm': 0.1, 'sentence_avg': False, 'upda
+te_freq': [1], 'lr': [5e-05], 'stop_min_lr': -1.0, 'use_bmuf': False, 'skip_remainder_batch': False, 'debug_param_names': False}, 'checkpoint': {'_name': None, 'save_d
+ir': './utut_ckpt/unit_mbart_multilingual_ft/en_ko', 'restore_file': '../../ckpt/utut_sts_ft.pt', 'continue_once': None, 'finetune_from_model': None, 'reset_dataloader
+': True, 'reset_lr_scheduler': True, 'reset_meters': True, 'reset_optimizer': True, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 1000, 'ke
+ep_interval_updates': 1, 'keep_interval_updates_pattern': 50000, 'keep_last_epochs': -1, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': True, '
+no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'loss', 'maximize_best_checkpoint_metric': False, 'patience': -1, 'checkpoint_
+suffix': '', 'checkpoint_shard_count': 1, 'load_checkpoint_on_all_dp_ranks': False, 'write_checkpoints_asynchronously': False, 'model_parallel_size': 1}, 'bmuf': {'_na
+me': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size
+': 1}, 'generation': {'_name': None, 'beam': 5, 'beam_mt': 0, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'max_len_a_mt': 0.0, 'max_len_b_mt': 200, 'min_len': 1, '
+match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'lenpen_mt': 1.0, 'unkpen': 0.0, 'replace_unk': None, 
+'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints'
+: None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': None, 'print_step': False, 'lm_path': N
+one, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_e
+xternal_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False, 'e
+os_token': None}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'inter
+active': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': Namespace(no_progress_bar=False, log_interval=100, log_format='json', log_file=None, aim_repo=None, 
+aim_run_hash=None, tensorboard_logdir='./utut_ckpt/unit_mbart_multilingual_ft/en_ko', wandb_project=None, azureml_logging=False, seed=2, cpu=False, tpu=False, bf16=Fal
+se, memory_efficient_bf16=False, fp16=True, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=128, fp16_scale_window=None, fp16_scale_tolerance
+=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user
+_dir='./', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=F
+alse, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='label_smoothed_cross_entropy', tokenizer=None, bpe=None, optimizer='adam', lr_scheduler='polynomial_
+decay', scoring='bleu', task='translation_from_pretrained_bart', num_workers=4, skip_invalid_size_inputs_valid_test=True, max_tokens=1024, batch_size=128, required_bat
+ch_size_multiple=8, required_seq_len_multiple=1, dataset_impl='mmap', data_buffer_size=10, train_subset='train', valid_subset='valid', combine_valid_subsets=None, igno
+re_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fixed_validation_seed=None, disable_validation=Fals[205/375]
+kens_valid=1024, batch_size_valid=128, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, shard_id=0, grouped_shuffling=False, update_epoch_batch_itr
+=False, update_ordered_indices_seed=False, distributed_world_size=1, distributed_num_procs=1, distributed_rank=0, distributed_backend='nccl', distributed_init_method=N
+one, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='pytorch_ddp', ddp_comm_hook='none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_u
+nused_parameters=False, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_buffers=False, slowmo_momentum=None, slowmo_base_algorithm
+='localsgd', localsgd_frequency=3, nprocs_per_node=8, pipeline_model_parallel=False, pipeline_balance=None, pipeline_devices=None, pipeline_chunks=0, pipeline_encoder_
+balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_checkpoint='never', zero_sharding='none', no_reshar
+d_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatten_parameters=False, arch='mbart_large', max_epoch=0, max_u
+pdate=100000, stop_time_hours=0, clip_norm=0.1, sentence_avg=False, update_freq=[1], lr=[5e-05], stop_min_lr=-1.0, use_bmuf=False, skip_remainder_batch=False, debug_pa
+ram_names=False, save_dir='./utut_ckpt/unit_mbart_multilingual_ft/en_ko', restore_file='../../ckpt/utut_sts_ft.pt', continue_once=None, finetune_from_model=None, reset
+_dataloader=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, optimizer_overrides='{}', save_interval=1, save_interval_updates=1000, keep_interva
+l_updates=1, keep_interval_updates_pattern=50000, keep_last_epochs=-1, keep_best_checkpoints=-1, no_save=False, no_epoch_checkpoints=True, no_last_checkpoints=False, n
+o_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=-1, checkpoint_suffix='', checkpoint_shard_count=1, load_c
+heckpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, ema_start_update=0, ema_seed_model=None, ema_update_freq=1,
+ ema_fp32=False, data='./data/dataset_mbart_ft_bin_data/en/ko', source_lang='en', target_lang='ko', load_alignments=False, left_pad_source=False, left_pad_target=False
+, upsample_primary=-1, truncate_source=False, num_batch_buckets=0, eval_bleu=False, eval_bleu_args='{}', eval_bleu_detok='space', eval_bleu_detok_args='{}', eval_token
+ized_bleu=False, eval_bleu_remove_bpe=None, eval_bleu_print_samples=False, langs='en,es,fr,it,pt,el,ru,cs,da,de,fi,hr,hu,lt,nl,pl,ro,sk,sl,ko', prepend_bos=True, label
+_smoothing=0.2, report_accuracy=True, ignore_prefix_size=0, force_anneal=None, lr_shrink=0.1, warmup_updates=10000, pad=1, eos=2, unk=3, no_seed_provided=False, no_sca
+le_embedding=False, encoder_embed_path=None, encoder_embed_dim=1024, encoder_ffn_embed_dim=4096, encoder_layers=12, encoder_attention_heads=16, encoder_normalize_befor
+e=True, encoder_learned_pos=False, decoder_embed_path=None, decoder_embed_dim=1024, decoder_ffn_embed_dim=4096, decoder_layers=12, decoder_attention_heads=16, decoder_
+normalize_before=True, decoder_learned_pos=False, attention_dropout=0.1, relu_dropout=0.0, dropout=0.1, max_target_positions=1024, max_source_positions=1024, adaptive_
+softmax_cutoff=None, adaptive_softmax_dropout=0, share_decoder_input_output_embed=True, share_all_embeddings=True, decoder_output_dim=1024, decoder_input_dim=1024, lay
+ernorm_embedding=False, activation_fn='gelu', pooler_activation_fn='tanh', pooler_dropout=0.0, _name='mbart_large'), 'task': Namespace(no_progress_bar=False, log_inter
+val=100, log_format='json', log_file=None, aim_repo=None, aim_run_hash=None, tensorboard_logdir='./utut_ckpt/unit_mbart_multilingual_ft/en_ko', wandb_project=None, azu
+reml_logging=False, seed=2, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=True, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_in
+it_scale=128, fp16_scale_window=None, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_
+retries=2, amp_init_scale=128, amp_scale_window=None, user_dir='./', empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=No
+ne, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='label_smoothed_cross_entropy', tokenizer=N
+one, bpe=None, optimizer='adam', lr_scheduler='polynomial_decay', scoring='bleu', task='translation_from_pretrained_bart', num_workers=4, skip_invalid_size_inputs_vali
+d_test=True, max_tokens=1024, batch_size=128, required_batch_size_multiple=8, required_seq_len_multiple=1, dataset_impl='mmap', data_buffer_size=10, train_subset='trai
+n', valid_subset='valid', combine_valid_subsets=None, ignore_unused_valid_subsets=False, validate_interval=1, validate_interval_updates=0, validate_after_updates=0, fi
+xed_validation_seed=None, disable_validation=False, max_tokens_valid=1024, batch_size_valid=128, max_valid_steps=None, curriculum=0, gen_subset='test', num_shards=1, s
+hard_id=0, grouped_shuffling=False, update_epoch_batch_itr=False, update_ordered_indices_seed=False, distributed_world_size=1, distributed_num_procs=1, distributed_ran
+k=0, distributed_backend='nccl', distributed_init_method=None, distributed_port=-1, device_id=0, distributed_no_spawn=False, ddp_backend='pytorch_ddp', ddp_comm_hook='
+none', bucket_cap_mb=25, fix_batches_to_gpus=False, find_unused_parameters=False, gradient_as_bucket_view=False, fast_stat_sync=False, heartbeat_timeout=-1, broadcast_
+buffers=False, slowmo_momentum=None, slowmo_base_algorithm='localsgd', localsgd_frequency=3, nprocs_per_node=8, pipeline_model_parallel=False, pipeline_balance=None, p
+ipeline_devices=None, pipeline_chunks=0, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pi
+peline_checkpoint='never', zero_sharding='none', no_reshard_after_forward=False, fp32_reduce_scatter=False, cpu_offload=False, use_sharded_state=False, not_fsdp_flatte
+n_parameters=False, arch='mbart_large', max_epoch=0, max_update=100000, stop_time_hours=0, clip_norm=0.1, sentence_avg=False, update_freq=[1], lr=[5e-05], stop_min_lr=
+-1.0, use_bmuf=False, skip_remainder_batch=False, debug_param_names=False, save_dir='./utut_ckpt/unit_mbart_multilingual_ft/en_ko', restore_file='../../ckpt/utut_sts_f
+t.pt', continue_once=None, finetune_from_model=None, reset_dataloader=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, optimizer_overrides='{}',
+ save_interval=1, save_interval_updates=1000, keep_interval_updates=1, keep_interval_updates_pattern=50000, keep_last_epochs=-1, keep_best_checkpoints=-1, no_save=Fals
+e, no_epoch_checkpoints=True, no_last_checkpoints=False, no_save_optimizer_state=False, best_checkpoint_metric='loss', maximize_best_checkpoint_metric=False, patience=
+-1, checkpoint_suffix='', checkpoint_shard_count=1, load_checkpoint_on_all_dp_ranks=False, write_checkpoints_asynchronously=False, store_ema=False, ema_decay=0.9999, e
+ma_start_update=0, ema_seed_model=None, ema_update_freq=1, ema_fp32=False, data='./data/dataset_mbart_ft_bin_data/en/ko', source_lang='en', target_lang='ko', load_alig
+nments=False, left_pad_source=False, left_pad_target=False, upsample_primary=-1, truncate_source=False, num_batch_buckets=0, eval_bleu=False, eval_bleu_args='{}', eval
+_bleu_detok='space', eval_bleu_detok_args='{}', eval_tokenized_bleu=False, eval_bleu_remove_bpe=None, eval_bleu_print_samples=False, langs='en,es,fr,it,pt,el,ru,cs,da$
+de,fi,hr,hu,lt,nl,pl,ro,sk,sl,ko', prepend_bos=True, label_smoothing=0.2, report_accuracy=True, ignore_prefix_size=0, force_anneal=None, lr_shrink=0.1, warmup[158/375]
+10000, pad=1, eos=2, unk=3, no_seed_provided=False, no_scale_embedding=False, encoder_embed_path=None, encoder_embed_dim=1024, encoder_ffn_embed_dim=4096, encoder_laye
+rs=12, encoder_attention_heads=16, encoder_normalize_before=True, encoder_learned_pos=False, decoder_embed_path=None, decoder_embed_dim=1024, decoder_ffn_embed_dim=409
+6, decoder_layers=12, decoder_attention_heads=16, decoder_normalize_before=True, decoder_learned_pos=False, attention_dropout=0.1, relu_dropout=0.0, dropout=0.1, max_t
+arget_positions=1024, max_source_positions=1024, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, share_decoder_input_output_embed=True, share_all_embeddings=
+True, decoder_output_dim=1024, decoder_input_dim=1024, layernorm_embedding=False, activation_fn='gelu', pooler_activation_fn='tanh', pooler_dropout=0.0, _name='transla
+tion_from_pretrained_bart'), 'criterion': {'_name': 'label_smoothed_cross_entropy', 'label_smoothing': 0.2, 'report_accuracy': True, 'ignore_prefix_size': 0, 'sentence
+_avg': False}, 'optimizer': {'_name': 'adam', 'adam_betas': [0.9, 0.999], 'adam_eps': 1e-08, 'weight_decay': 0.0, 'use_old_adam': False, 'fp16_adam_stats': False, 'tpu
+': False, 'lr': [5e-05]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 10000, 'force_anneal': None, 'end_learning_rate': 0.0, 'power': 1.0, 'total_n
+um_update': 100000.0, 'lr': [5e-05]}, 'scoring': {'_name': 'bleu', 'pad': 1, 'eos': 2, 'unk': 3}, 'bpe': None, 'tokenizer': None, 'ema': {'_name': None, 'store_ema': F
+alse, 'ema_decay': 0.9999, 'ema_start_update': 0, 'ema_seed_model': None, 'ema_update_freq': 1, 'ema_fp32': False}}                                                    
+2026-02-01 20:24:55 | INFO | fairseq.tasks.translation | [en] dictionary: 1004 types                                                                                   
+2026-02-01 20:24:55 | INFO | fairseq.tasks.translation | [ko] dictionary: 1004 types                                                                                   
+2026-02-01 20:25:01 | INFO | fairseq_cli.train | BARTModel(                                                                                                            
+  (encoder): TransformerEncoderBase(                                                                                                                                   
+    (dropout_module): FairseqDropout()                                                                                                                                 
+    (embed_tokens): Embedding(1025, 1024, padding_idx=1)                                                                                                               
+    (embed_positions): SinusoidalPositionalEmbedding()                                                                                                                 
+    (layers): ModuleList(                                                                                                                                              
+      (0-11): 12 x TransformerEncoderLayerBase(                                                                                                                        
+        (self_attn): MultiheadAttention(                                                                                                                               
+          (dropout_module): FairseqDropout()                                                                                                                           
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                           
+        )                                                                                                                                                              
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                                 
+        (dropout_module): FairseqDropout()                                                                                                                             
+        (activation_dropout_module): FairseqDropout()                                                                                                                  
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)              
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)              
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                                     
+      )                                  
+    )                                    
+    (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                                               
+  )                                      
+  (decoder): TransformerDecoderBase(                                               
+    (dropout_module): FairseqDropout()                                             
+    (embed_tokens): Embedding(1025, 1024, padding_idx=1)                           
+    (embed_positions): SinusoidalPositionalEmbedding()                             
+    (layers): ModuleList(                
+      (0-11): 12 x TransformerDecoderLayerBase(                                    
+        (dropout_module): FairseqDropout()                                         
+        (self_attn): MultiheadAttention(                                           
+          (dropout_module): FairseqDropout()                                       
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                                   
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                           
+        )                                                                                                                                                              
+        (activation_dropout_module): FairseqDropout()                                                                                                                  
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                                 
+        (encoder_attn): MultiheadAttention(                                                                                                                            
+          (dropout_module): FairseqDropout()                                                                                                                           
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                             
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)                                                                                           
+        )                                                                                                                                                              
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                              
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)                                                                                                  
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)                                                                                                  
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                                     
+      )                                                                                                                                                                
+    )                                                                                                                                                                  
+    (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)                                                                                               
+    (output_projection): Linear(in_features=1024, out_features=1025, bias=False)                                                                                       
+  )                                                                                                                                                                    
+  (classification_heads): ModuleDict()                                                                                                                                 
+)                                                                                                                                                                      
+2026-02-01 20:25:01 | INFO | fairseq_cli.train | task: TranslationFromPretrainedBARTTask                                                                               
+2026-02-01 20:25:01 | INFO | fairseq_cli.train | model: BARTModel                  
+2026-02-01 20:25:01 | INFO | fairseq_cli.train | criterion: LabelSmoothedCrossEntropyCriterion                                                                         
+2026-02-01 20:25:01 | INFO | fairseq_cli.train | num. shared model params: 353,768,448 (num. trained: 353,768,448)                                                     
+2026-02-01 20:25:01 | INFO | fairseq_cli.train | num. expert model params: 0 (num. trained: 0)                                                                         
+2026-02-01 20:25:01 | INFO | fairseq.data.data_utils | loaded 9,416 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/valid.en-ko.en                               
+2026-02-01 20:25:01 | INFO | fairseq.data.data_utils | loaded 9,416 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/valid.en-ko.ko                               
+2026-02-01 20:25:01 | INFO | fairseq.tasks.translation | ./data/dataset_mbart_ft_bin_data/en/ko valid en-ko 9416 examples                                              
+2026-02-01 20:25:03 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight                                   
+2026-02-01 20:25:03 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight                    [81/378]
+2026-02-01 20:25:03 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************                                          
+2026-02-01 20:25:03 | INFO | fairseq.utils | rank   0: capabilities =  8.6  ; total memory = 47.536 GB ; name = NVIDIA RTX A6000                                       
+2026-02-01 20:25:03 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************                                          
+2026-02-01 20:25:03 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)                                                                                     
+2026-02-01 20:25:03 | INFO | fairseq_cli.train | max tokens per device = 1024 and max sentences per device = 128                                                       
+2026-02-01 20:25:03 | INFO | fairseq.trainer | Preparing to load checkpoint ../../ckpt/utut_sts_ft.pt                                                                  
+2026-02-01 20:25:03 | INFO | fairseq.trainer | No existing checkpoint found ../../ckpt/utut_sts_ft.pt                                                                  
+2026-02-01 20:25:03 | INFO | fairseq.trainer | loading train data for epoch 1                                                                                          
+2026-02-01 20:25:03 | INFO | fairseq.data.data_utils | loaded 150,660 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/train.en-ko.en                             
+2026-02-01 20:25:03 | INFO | fairseq.data.data_utils | loaded 150,660 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/train.en-ko.ko                             
+2026-02-01 20:25:03 | INFO | fairseq.tasks.translation | ./data/dataset_mbart_ft_bin_data/en/ko train en-ko 150660 examples                                            
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | can_reuse_epoch_itr = True                                                                                   
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | reuse_dataloader = True                                                                                      
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | rebuild_batches = False                                                                                      
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | creating new batches for epoch 1                                                                             
+2026-02-01 20:25:03 | WARNING | fairseq.tasks.fairseq_task | 120 samples have invalid sizes and will be skipped, max_positions=(1024, 1024), first few sample ids=[1433
+63, 138770, 138535, 94614, 24310, 96355, 94612, 96349, 94613, 100338]              
+2026-02-01 20:25:03 | INFO | fairseq_cli.train | begin dry-run validation on "valid" subset                                                                            
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | can_reuse_epoch_itr = True                                                                                   
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | reuse_dataloader = True                                                                                      
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | rebuild_batches = False                                                                                      
+2026-02-01 20:25:03 | INFO | fairseq.tasks.fairseq_task | creating new batches for epoch 1                                                                             
+2026-02-01 20:25:03 | WARNING | fairseq.tasks.fairseq_task | 7 samples have invalid sizes and will be skipped, max_positions=(1024, 1024), first few sample ids=[4120, 
+2706, 4126, 4150, 4152, 4138, 4139]      
+2026-02-01 20:25:13 | INFO | fairseq.data.iterators | grouped total_num_itrs = 53661
+2026-02-01 20:25:13 | INFO | fairseq.trainer | begin training epoch 1
+2026-02-01 20:25:13 | INFO | fairseq_cli.train | Start iterating over samples
+/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/torch/nn/functional.py:5076: UserWarning: Support for mismatched key_padding_mask and attn_mask i
+s deprecated. Use same type for both instead.                                      
+  warnings.warn(
+2026-02-01 20:25:30 | INFO | train_inner | {"epoch": 1, "update": 0.002, "loss": "8.434", "nll_loss": "7.896", "total": "654.59", "n_correct": "215.64", "ppl": "238.13
+", "accuracy": "32.943", "wps": "4254.9", "ups": "6.47", "wpb": "654.6", "bsz": "2.6", "num_updates": "100", "lr": "5e-07", "gnorm": "3.767", "clip": "100", "loss_scal
+e": "128", "train_wall": "17", "gb_free": "39.6", "wall": "28"}                    
+2026-02-01 20:25:45 | INFO | train_inner | {"epoch": 1, "update": 0.004, "loss": "8.095", "nll_loss": "7.452", "total": "664.37", "n_correct": "217.34", "ppl": "175.11
+", "accuracy": "32.714", "wps": "4489.6", "ups": "6.76", "wpb": "664.4", "bsz": "2.8", "num_updates": "200", "lr": "1e-06", "gnorm": "2.998", "clip": "100", "loss_scal
+e": "128", "train_wall": "14", "gb_free": "39.6", "wall": "42"}                    
+2026-02-01 20:26:00 | INFO | train_inner | {"epoch": 1, "update": 0.006, "loss": "7.948", "nll_loss": "7.261", "total": "648.79", "n_correct": "207.39", "ppl": "153.43
+", "accuracy": "31.966", "wps": "4400.2", "ups": "6.78", "wpb": "648.8", "bsz": "2.6", "num_updates": "300", "lr": "1.5e-06", "gnorm": "2.721", "clip": "100", "loss_sc
+ale": "128", "train_wall": "14", "gb_free": "39.6", "wall": "57"}                  
+2026-02-01 20:26:15 | INFO | train_inner | {"epoch": 1, "update": 0.007, "loss": "7.812", "nll_loss": "7.078", "total": "654.52", "n_correct": "208.48", "ppl": "135.09
+", "accuracy": "31.852", "wps": "4415", "ups": "6.75", "wpb": "654.5", "bsz": "3.2", "num_updates": "400", "lr": "2e-06", "gnorm": "2.711", "clip": "100", "loss_scale"
+: "128", "train_wall": "15", "gb_free": "39.6", "wall": "72"}                  
+2026-02-01 20:26:29 | INFO | train_inner | {"epoch": 1, "update": 0.009, "loss": "7.595", "nll_loss": "6.79", "total": "613.95", "n_correct": "202.77", "ppl": [41/381$
+, "accuracy": "33.027", "wps": "4182.5", "ups": "6.81", "wpb": "614", "bsz": "2.8", "num_updates": "500", "lr": "2.5e-06", "gnorm": "2.898", "clip": "100", "loss_scale
+": "128", "train_wall": "14", "gb_free": "39.6", "wall": "87"}                                                                                                         
+2026-02-01 20:26:44 | INFO | train_inner | {"epoch": 1, "update": 0.011, "loss": "7.391", "nll_loss": "6.513", "total": "649.75", "n_correct": "213.38", "ppl": "91.35"
+, "accuracy": "32.84", "wps": "4410.5", "ups": "6.79", "wpb": "649.8", "bsz": "2.9", "num_updates": "600", "lr": "3e-06", "gnorm": "2.657", "clip": "100", "loss_scale"
+: "128", "train_wall": "14", "gb_free": "39.6", "wall": "101"}                                                                                                         
+2026-02-01 20:26:59 | INFO | train_inner | {"epoch": 1, "update": 0.013, "loss": "7.175", "nll_loss": "6.226", "total": "642.32", "n_correct": "217.94", "ppl": "74.85"
+, "accuracy": "33.93", "wps": "4329.9", "ups": "6.74", "wpb": "642.3", "bsz": "3.2", "num_updates": "700", "lr": "3.5e-06", "gnorm": "2.73", "clip": "100", "loss_scale
+": "128", "train_wall": "15", "gb_free": "39.6", "wall": "116"}                                                                                                        
+2026-02-01 20:27:14 | INFO | train_inner | {"epoch": 1, "update": 0.015, "loss": "6.9", "nll_loss": "5.859", "total": "673.75", "n_correct": "245.25", "ppl": "58.05", 
+"accuracy": "36.401", "wps": "4558.2", "ups": "6.77", "wpb": "673.8", "bsz": "3.4", "num_updates": "800", "lr": "4e-06", "gnorm": "2.722", "clip": "100", "loss_scale":
+ "128", "train_wall": "14", "gb_free": "39.6", "wall": "131"}                                                                                                          
+2026-02-01 20:27:29 | INFO | train_inner | {"epoch": 1, "update": 0.017, "loss": "6.671", "nll_loss": "5.555", "total": "659.77", "n_correct": "242.83", "ppl": "47.01"
+, "accuracy": "36.805", "wps": "4448.6", "ups": "6.74", "wpb": "659.8", "bsz": "2.5", "num_updates": "900", "lr": "4.5e-06", "gnorm": "2.647", "clip": "100", "loss_sca
+le": "128", "train_wall": "15", "gb_free": "39.6", "wall": "146"}                                                                                                      
+2026-02-01 20:27:43 | INFO | train_inner | {"epoch": 1, "update": 0.019, "loss": "6.548", "nll_loss": "5.386", "total": "637.25", "n_correct": "232.87", "ppl": "41.81"
+, "accuracy": "36.543", "wps": "4293.4", "ups": "6.74", "wpb": "637.2", "bsz": "2.8", "num_updates": "1000", "lr": "5e-06", "gnorm": "2.685", "clip": "100", "loss_scal
+e": "128", "train_wall": "15", "gb_free": "39.6", "wall": "161"}                   
+2026-02-01 20:27:43 | INFO | fairseq_cli.train | begin validation on "valid" subset                                                                                    
+2026-02-01 20:27:43 | INFO | fairseq.tasks.fairseq_task | can_reuse_epoch_itr = True                                                                                   
+^[[A2026-02-01 20:29:15 | INFO | valid | {"epoch": 1, "valid_loss": "6.257", "valid_nll_loss": "4.94", "valid_total": "637.978", "valid_n_correct": "245.21", "valid_pp
+l": "30.7", "valid_accuracy": "38.435", "valid_wps": "23615.7", "valid_wpb": "638", "valid_bsz": "2.8", "valid_num_updates": "1000"}                                   
+2026-02-01 20:29:15 | INFO | fairseq.checkpoint_utils | Preparing to save checkpoint for epoch 1 @ 1000 updates
+2026-02-01 20:29:15 | INFO | fairseq.trainer | Saving checkpoint to /home/2022113135/jjs/av2av/unit2unit/utut_finetune/utut_ckpt/unit_mbart_multilingual_ft/en_ko/check
+point_1_1000.pt
+2026-02-01 20:29:23 | INFO | fairseq.trainer | Finished saving checkpoint to /home/2022113135/jjs/av2av/unit2unit/utut_finetune/utut_ckpt/unit_mbart_multilingual_ft/en
+_ko/checkpoint_1_1000.pt
+2026-02-01 20:29:32 | INFO | fairseq.checkpoint_utils | Saved checkpoint ./utut_ckpt/unit_mbart_multilingual_ft/en_ko/checkpoint_1_1000.pt (epoch 1 @ 1000 updates, sco
+re 6.257) (writing took 16.887225441008923 seconds)
+Traceback (most recent call last):
+  File "/home/2022113135/jjs/av2av/unit2unit/utut_finetune/finetune_en_ko.py", line 137, in <module>
+    cli_main()
+  File "/home/2022113135/jjs/av2av/unit2unit/utut_finetune/finetune_en_ko.py", line 134, in cli_main
+    distributed_utils.call_main(cfg, main) # Run FairSeq training  
+  File "/home/2022113135/av2av/fairseq/fairseq/distributed/utils.py", line 404, in call_main
+    main(cfg, **kwargs)
+  File "/home/2022113135/av2av/fairseq/fairseq_cli/train.py", line 205, in main
+    valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/2022113135/av2av/fairseq/fairseq_cli/train.py", line 345, in train
+    valid_losses, should_stop = validate_and_save(                                                                                                              [0/381]
+  File "/home/2022113135/av2av/fairseq/fairseq_cli/train.py", line 442, in validate_and_save
+    cp_path = checkpoint_utils.save_checkpoint(
+  File "/home/2022113135/jjs/av2av/unit2unit/utut_finetune/finetune_en_ko.py", line 50, in custom_save_ckptname
+    save_dir = cfg.checkpoint.save_dir
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 353, in __getattr__
+    self._format_and_raise(
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/base.py", line 190, in _format_and_raise
+    format_and_raise(
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/_utils.py", line 821, in format_and_raise
+    _raise(ex, cause)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/_utils.py", line 719, in _raise
+    raise ex.with_traceback(sys.exc_info()[2])  # set end OC_CAUSE=1 for full backtrace
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 351, in __getattr__
+    return self._get_impl(key=key, default_value=_DEFAULT_MARKER_)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 438, in _get_impl
+    node = self._get_node(key=key, throw_on_missing_key=True)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/omegaconf/dictconfig.py", line 470, in _get_node
+    raise ConfigKeyError(f"Missing key {key}")
+omegaconf.errors.ConfigAttributeError: Missing key checkpoint
+    full_key: checkpoint.checkpoint
+    object_type=dict
+^CException ignored in atexit callback: <function _MultiProcessingDataLoaderIter._clean_up_worker at 0x73233008aef0>
+Traceback (most recent call last):
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1472, in _clean_up_worker
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)

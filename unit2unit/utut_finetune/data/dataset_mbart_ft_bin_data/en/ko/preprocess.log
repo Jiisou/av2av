@@ -1,0 +1,14 @@
+Namespace(no_progress_bar=False, log_interval=100, log_format=None, log_file=None, aim_repo=None, aim_run_hash=None, tensorboard_logdir=None, wandb_project=None, azureml_logging=False, seed=1, cpu=False, tpu=False, bf16=False, memory_efficient_bf16=False, fp16=False, memory_efficient_fp16=False, fp16_no_flatten_grads=False, fp16_init_scale=128, fp16_scale_window=None, fp16_scale_tolerance=0.0, on_cpu_convert_precision=False, min_loss_scale=0.0001, threshold_loss_scale=None, amp=False, amp_batch_retries=2, amp_init_scale=128, amp_scale_window=None, user_dir=None, empty_cache_freq=0, all_gather_list_size=16384, model_parallel_size=1, quantization_config_path=None, profile=False, reset_logging=False, suppress_crashes=False, use_plasma_view=False, plasma_path='/tmp/plasma', criterion='cross_entropy', tokenizer=None, bpe=None, optimizer=None, lr_scheduler='fixed', scoring='bleu', task='translation', source_lang='en', target_lang='ko', trainpref='/home/2022113135/datasets/a2a/aihub_raw_data/train', validpref='/home/2022113135/datasets/a2a/aihub_raw_data/valid', testpref='/home/2022113135/datasets/a2a/aihub_raw_data/test', align_suffix=None, destdir='/home/2022113135/jjs/av2av/unit2unit/utut_finetune/data/dataset_mbart_ft_bin_data/en/ko', thresholdtgt=0, thresholdsrc=0, tgtdict='/home/2022113135/datasets/a2a/utut_pretrain/dict.txt', srcdict='/home/2022113135/datasets/a2a/utut_pretrain/dict.txt', nwordstgt=-1, nwordssrc=-1, alignfile=None, dataset_impl='mmap', joined_dictionary=False, only_source=False, padding_factor=8, workers=4, dict_only=False)
+[en] Dictionary: 1004 types
+[en] /home/2022113135/datasets/a2a/aihub_raw_data/train.en: 150660 sents, 39956471 tokens, 0.149% replaced (by <unk>)
+[en] Dictionary: 1004 types
+[en] /home/2022113135/datasets/a2a/aihub_raw_data/valid.en: 9416 sents, 2481321 tokens, 0.153% replaced (by <unk>)
+[en] Dictionary: 1004 types
+[en] /home/2022113135/datasets/a2a/aihub_raw_data/test.en: 9412 sents, 2496473 tokens, 0.143% replaced (by <unk>)
+[ko] Dictionary: 1004 types
+[ko] /home/2022113135/datasets/a2a/aihub_raw_data/train.ko: 150660 sents, 34696033 tokens, 0.152% replaced (by <unk>)
+[ko] Dictionary: 1004 types
+[ko] /home/2022113135/datasets/a2a/aihub_raw_data/valid.ko: 9416 sents, 2144089 tokens, 0.157% replaced (by <unk>)
+[ko] Dictionary: 1004 types
+[ko] /home/2022113135/datasets/a2a/aihub_raw_data/test.ko: 9412 sents, 2184415 tokens, 0.148% replaced (by <unk>)
+Wrote preprocessed data to /home/2022113135/jjs/av2av/unit2unit/utut_finetune/data/dataset_mbart_ft_bin_data/en/ko

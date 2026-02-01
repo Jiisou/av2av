@@ -1,0 +1,62 @@
+2026-01-30 15:55:53 | INFO | fairseq_cli.train | task: TranslationFromPretrainedBARTTask
+2026-01-30 15:55:53 | INFO | fairseq_cli.train | model: BARTModel
+2026-01-30 15:55:53 | INFO | fairseq_cli.train | criterion: LabelSmoothedCrossEntropyCriterion
+2026-01-30 15:55:53 | INFO | fairseq_cli.train | num. shared model params: 353,768,448 (num. trained: 353,768,448)
+2026-01-30 15:55:53 | INFO | fairseq_cli.train | num. expert model params: 0 (num. trained: 0)
+2026-01-30 15:55:53 | INFO | fairseq.data.data_utils | loaded 9,416 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/valid.en-ko.en
+2026-01-30 15:55:53 | INFO | fairseq.data.data_utils | loaded 9,416 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/valid.en-ko.ko
+2026-01-30 15:55:53 | INFO | fairseq.tasks.translation | ./data/dataset_mbart_ft_bin_data/en/ko valid en-ko 9416 examples
+2026-01-30 15:55:54 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2026-01-30 15:55:54 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2026-01-30 15:55:54 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2026-01-30 15:55:54 | INFO | fairseq.utils | rank   0: capabilities =  8.6  ; total memory = 47.536 GB ; name = NVIDIA RTX A6000                        
+2026-01-30 15:55:54 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2026-01-30 15:55:54 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2026-01-30 15:55:54 | INFO | fairseq_cli.train | max tokens per device = 1024 and max sentences per device = 128
+2026-01-30 15:55:54 | INFO | fairseq.trainer | Preparing to load checkpoint ../../ckpt/utut_sts_ft.pt
+2026-01-30 15:55:54 | INFO | fairseq.trainer | No existing checkpoint found ../../ckpt/utut_sts_ft.pt
+2026-01-30 15:55:54 | INFO | fairseq.trainer | loading train data for epoch 1
+2026-01-30 15:55:54 | INFO | fairseq.data.data_utils | loaded 150,660 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/train.en-ko.en
+2026-01-30 15:55:54 | INFO | fairseq.data.data_utils | loaded 150,660 examples from: ./data/dataset_mbart_ft_bin_data/en/ko/train.en-ko.ko
+2026-01-30 15:55:54 | INFO | fairseq.tasks.translation | ./data/dataset_mbart_ft_bin_data/en/ko train en-ko 150660 examples
+2026-01-30 15:55:54 | INFO | fairseq.tasks.fairseq_task | can_reuse_epoch_itr = True
+2026-01-30 15:55:54 | INFO | fairseq.tasks.fairseq_task | reuse_dataloader = True
+2026-01-30 15:55:54 | INFO | fairseq.tasks.fairseq_task | rebuild_batches = False
+2026-01-30 15:55:54 | INFO | fairseq.tasks.fairseq_task | creating new batches for epoch 1
+2026-01-30 15:55:54 | WARNING | fairseq.tasks.fairseq_task | 120 samples have invalid sizes and will be skipped, max_positions=(1024, 1024), first few sample ids=[143363, 138770, 138535, 94614, 24310, 96355, 94612, 96349, 94613, 100338]
+2026-01-30 15:55:55 | INFO | fairseq_cli.train | begin dry-run validation on "valid" subset
+2026-01-30 15:55:55 | INFO | fairseq.tasks.fairseq_task | can_reuse_epoch_itr = True
+2026-01-30 15:55:55 | INFO | fairseq.tasks.fairseq_task | reuse_dataloader = True
+2026-01-30 15:55:55 | INFO | fairseq.tasks.fairseq_task | rebuild_batches = False
+2026-01-30 15:55:55 | INFO | fairseq.tasks.fairseq_task | creating new batches for epoch 1
+2026-01-30 15:55:55 | WARNING | fairseq.tasks.fairseq_task | 7 samples have invalid sizes and will be skipped, max_positions=(1024, 1024), first few sample ids=[4120, 2706, 4126, 4150, 4152, 4138, 4139]
+2026-01-30 15:56:06 | INFO | fairseq.data.iterators | grouped total_num_itrs = 53661
+2026-01-30 15:56:06 | INFO | fairseq.trainer | begin training epoch 1
+2026-01-30 15:56:06 | INFO | fairseq_cli.train | Start iterating over samples
+/home/2022113135/.conda/envs/unit2a_data/lib/python3.10/site-packages/torch/nn/functional.py:5076: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+2026-01-30 15:56:26 | INFO | train_inner | {"epoch": 1, "update": 0.002, "loss": "8.434", "nll_loss": "7.896", "total": "654.59", "n_correct": "215.64", "ppl": "238.13", "accuracy": "32.943", "wps": "3842.1", "ups": "5.84", "wpb": "654.6", "bsz": "2.6", "num_updates": "100", "lr": "5e-07", "gnorm": "3.767", "clip": "100", "loss_scale": "128", "train_wall": "19", "gb_free": "39.6", "wall": "32"}
+2026-01-30 15:56:43 | INFO | train_inner | {"epoch": 1, "update": 0.004, "loss": "8.095", "nll_loss": "7.452", "total": "664.37", "n_correct": "217.34", "ppl": "175.11", "accuracy": "32.714", "wps": "3895", "ups": "5.86", "wpb": "664.4", "bsz": "2.8", "num_updates": "200", "lr": "1e-06", "gnorm": "2.998", "clip": "100", "loss_scale": "128", "train_wall": "17", "gb_free": "39.6", "wall": "49"}
+2026-01-30 15:56:59 | INFO | train_inner | {"epoch": 1, "update": 0.006, "loss": "7.948", "nll_loss": "7.261", "total": "648.79", "n_correct": "207.39", "ppl": "153.43", "accuracy": "31.966", "wps": "4022.4", "ups": "6.2", "wpb": "648.8", "bsz": "2.6", "num_updates": "300", "lr": "1.5e-06", "gnorm": "2.721", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "65"}
+2026-01-30 15:57:15 | INFO | train_inner | {"epoch": 1, "update": 0.007, "loss": "7.812", "nll_loss": "7.078", "total": "654.52", "n_correct": "208.47", "ppl": "135.09", "accuracy": "31.851", "wps": "4002.2", "ups": "6.11", "wpb": "654.5", "bsz": "3.2", "num_updates": "400", "lr": "2e-06", "gnorm": "2.711", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "81"}
+2026-01-30 15:57:32 | INFO | train_inner | {"epoch": 1, "update": 0.009, "loss": "7.595", "nll_loss": "6.79", "total": "613.95", "n_correct": "202.77", "ppl": "110.65", "accuracy": "33.027", "wps": "3719.3", "ups": "6.06", "wpb": "614", "bsz": "2.8", "num_updates": "500", "lr": "2.5e-06", "gnorm": "2.898", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "98"}
+2026-01-30 15:57:48 | INFO | train_inner | {"epoch": 1, "update": 0.011, "loss": "7.391", "nll_loss": "6.513", "total": "649.75", "n_correct": "213.39", "ppl": "91.35", "accuracy": "32.842", "wps": "4034.4", "ups": "6.21", "wpb": "649.8", "bsz": "2.9", "num_updates": "600", "lr": "3e-06", "gnorm": "2.657", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "114"}
+2026-01-30 15:58:04 | INFO | train_inner | {"epoch": 1, "update": 0.013, "loss": "7.175", "nll_loss": "6.226", "total": "642.32", "n_correct": "217.96", "ppl": "74.85", "accuracy": "33.933", "wps": "4023.6", "ups": "6.26", "wpb": "642.3", "bsz": "3.2", "num_updates": "700", "lr": "3.5e-06", "gnorm": "2.73", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "130"}
+
+...
+
+2026-01-30 16:04:21 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2026-01-30 16:04:21 | INFO | fairseq.tasks.fairseq_task | can_reuse_epoch_itr = True
+2026-01-30 16:06:10 | INFO | valid | {"epoch": 1, "valid_loss": "5.565", "valid_nll_loss": "3.912", "valid_total": "637.978", "valid_n_correct": "256.038", "valid_ppl": "15.05", "valid_accuracy": "40.133", "valid_wps": "19777", "valid_wpb": "638", "valid_bsz": "2.8", "valid_num_updates": "2000", "valid_best_loss": "5.565"}
+2026-01-30 16:06:10 | INFO | fairseq.checkpoint_utils | Preparing to save checkpoint for epoch 1 @ 2000 updates
+2026-01-30 16:06:10 | INFO | fairseq.trainer | Saving checkpoint to /home/2022113135/jjs/av2av/unit2unit/utut_finetune/utut_ckpt/unit_mbart_multilingual_ft/en_ko/checkpoint_1_2000.pt
+2026-01-30 16:06:20 | INFO | fairseq.trainer | Finished saving checkpoint to /home/2022113135/jjs/av2av/unit2unit/utut_finetune/utut_ckpt/unit_mbart_multilingual_ft/en_ko/checkpoint_1_2000.pt
+2026-01-30 16:07:06 | INFO | fairseq.checkpoint_utils | Saved checkpoint ./utut_ckpt/unit_mbart_multilingual_ft/en_ko/checkpoint_1_2000.pt (epoch 1 @ 2000 updates, score 5.565) (writing took 55.911126436665654 seconds)
+2026-01-30 16:07:24 | INFO | train_inner | {"epoch": 1, "update": 0.039, "loss": "5.584", "nll_loss": "4.012", "total": "632.74", "n_correct": "256.01", "ppl": "16.13", "accuracy": "40.461", "wps": "346", "ups": "0.55", "wpb": "632.7", "bsz": "2.5", "num_updates": "2100", "lr": "1.05e-05", "gnorm": "1.955", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "690"}
+2026-01-30 16:07:40 | INFO | train_inner | {"epoch": 1, "update": 0.041, "loss": "5.564", "nll_loss": "3.981", "total": "649.49", "n_correct": "263.23", "ppl": "15.79", "accuracy": "40.529", "wps": "3997.1", "ups": "6.15", "wpb": "649.5", "bsz": "2.8", "num_updates": "2200", "lr": "1.1e-05", "gnorm": "1.906", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "706"}
+2026-01-30 16:07:56 | INFO | train_inner | {"epoch": 1, "update": 0.043, "loss": "5.547", "nll_loss": "3.952", "total": "677.76", "n_correct": "276.31", "ppl": "15.48", "accuracy": "40.768", "wps": "4217.9", "ups": "6.22", "wpb": "677.8", "bsz": "2.8", "num_updates": "2300", "lr": "1.15e-05", "gnorm": "1.831", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "722"}
+2026-01-30 16:08:12 | INFO | train_inner | {"epoch": 1, "update": 0.045, "loss": "5.532", "nll_loss": "3.927", "total": "660.97", "n_correct": "268", "ppl": "15.21", "accuracy": "40.546", "wps": "4109.4", "ups": "6.22", "wpb": "661", "bsz": "3", "num_updates": "2400", "lr": "1.2e-05", "gnorm": "1.833", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "738"}
+2026-01-30 16:08:28 | INFO | train_inner | {"epoch": 1, "update": 0.047, "loss": "5.517", "nll_loss": "3.905", "total": "646.8", "n_correct": "265.31", "ppl": "14.98", "accuracy": "41.019", "wps": "4046", "ups": "6.26", "wpb": "646.8", "bsz": "2.6", "num_updates": "2500", "lr": "1.25e-05", "gnorm": "1.829", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "754"}
+2026-01-30 16:08:44 | INFO | train_inner | {"epoch": 1, "update": 0.048, "loss": "5.533", "nll_loss": "3.919", "total": "650.08", "n_correct": "260.83", "ppl": "15.12", "accuracy": "40.123", "wps": "4063.2", "ups": "6.25", "wpb": "650.1", "bsz": "2.7", "num_updates": "2600", "lr": "1.3e-05", "gnorm": "1.78", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "770"}
+2026-01-30 16:09:00 | INFO | train_inner | {"epoch": 1, "update": 0.05, "loss": "5.527", "nll_loss": "3.91", "total": "635.56", "n_correct": "253.86", "ppl": "15.04", "accuracy": "39.943", "wps": "3932", "ups": "6.19", "wpb": "635.6", "bsz": "3.1", "num_updates": "2700", "lr": "1.35e-05", "gnorm": "1.786", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "786"}
+2026-01-30 16:09:17 | INFO | train_inner | {"epoch": 1, "update": 0.052, "loss": "5.506", "nll_loss": "3.877", "total": "639.09", "n_correct": "260.17", "ppl": "14.7", "accuracy": "40.709", "wps": "3968.3", "ups": "6.21", "wpb": "639.1", "bsz": "2.6", "num_updates": "2800", "lr": "1.4e-05", "gnorm": "1.773", "clip": "100", "loss_scale": "128", "train_wall": "16", "gb_free": "39.6", "wall": "803"}

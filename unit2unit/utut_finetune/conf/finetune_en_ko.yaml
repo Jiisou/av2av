@@ -1,15 +1,15 @@
 arch: mbart_large
 criterion: label_smoothed_cross_entropy
 task: translation_from_pretrained_bart
-data: //data/dataset_mbart_ft_bin_data/en/ko
+data: ./data/dataset_mbart_ft_bin_data/en/ko
 # ddp_backend: legacy_ddp
 distributed_init_method: null
 # distributed_no_spawn: false
-distributed_num_procs: 1 #8 # Adjust to available system
+distributed_num_procs: 1  #8 # Adjust to available system
 distributed_port: -1
-distributed_world_size: 8 # ??
+distributed_world_size: 1 # fairseq가 사용할 GPU 수 (world size)
 label_smoothing: 0.2 ##################
-langs: en,es,fr,it,pt,el,ru,cs,da,de,fi,hr,hu,lt,nl,pl,ro,sk,sl,ko # ADD KO
+langs: en,es,fr,it,pt,el,ru,cs,da,de,fi,hr,hu,lt,nl,pl,ro,sk,sl,ko # ADD [KO]
 log_interval: 100
 lr:
 - 0.00005  # Lower LR for low-resource fine-tuning 
@@ -17,8 +17,8 @@ max_update: 100000 # Claude recommand 50000
 nprocs_per_node: 8
 num_workers: 4 #3
 report_accuracy: true
-save_dir: //utut_ckpt/unit_mbart_multilingual_ft/en_ko
-tensorboard_logdir: //utut_ckpt/unit_mbart_multilingual_ft/en_ko
+save_dir: ./utut_ckpt/unit_mbart_multilingual_ft/en_ko
+tensorboard_logdir: ./utut_ckpt/unit_mbart_multilingual_ft/en_ko
 total_num_update: 100000
 train_subset: train
 update_freq:
@@ -26,10 +26,10 @@ update_freq:
 user_dir: ./
 valid_subset: valid
 max_tokens: 1024
-# batch_size: 256 # 128
+# batch_size: 256 # default=128
 multilang_sampling_alpha: 1.0
 # dataset_impl: raw
-restore_file: /Users/jisu/Desktop/dev/cli/av2av/modelckpt/utut_sts_ft.pt # base checkpoint
+restore_file: ../../ckpt/utut_sts_ft.pt # base checkpoint
 reset_optimizer: true
 reset_meters: true
 reset_dataloader: true
